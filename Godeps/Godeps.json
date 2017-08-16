@@ -1,0 +1,11 @@
+{
+	"ImportPath": "github.com/dlclark/dnsping",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/miekg/dns",
+			"Rev": "0598bd43cf51d0375c5bcd3a42e807cc19b3b7d9"
+		}
+	]
+}
