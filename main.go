@@ -139,7 +139,7 @@ OPTIONS
 	}
 
 	fmt.Printf("\n--- %s dnsping statistics ---\n", dnsServer)
-	fmt.Printf("%d requests transmitted, %d responses received, %.0f%% lost\n", requests, len(responseTimes), lostPercent)
+	fmt.Printf("%d requests transmitted, %d responses received, %.1f%% lost\n", requests, len(responseTimes), lostPercent)
 	fmt.Printf("round-trip min/avg/max/stddev = %.3f/%.3f/%.3f/%.3f ms\n", min(responseTimes), avg(responseTimes), max(responseTimes), stddev(responseTimes))
 }
 
