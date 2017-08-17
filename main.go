@@ -46,9 +46,9 @@ OPTIONS
 	}
 	flag.Parse()
 
-	if ct := len(flag.Args()); ct != 1 {
+	if len(flag.Args()) != 1 {
 		flag.Usage()
-		os.Exit(1)
+		os.Exit(2)
 	}
 
 	dnsServer = flag.Args()[0]
@@ -59,7 +59,6 @@ OPTIONS
 
 	go func() {
 		for range signalChan {
-
 			if isStopping() {
 				// second ctrl-C means immediate exit
 				os.Exit(0)
@@ -126,7 +125,7 @@ OPTIONS
 		}
 
 		responseTimes = append(responseTimes, dur)
-		fmt.Printf("%d bytes from %s: seq=%-3d time=%0.3f ms%v\n", resp.Len(), dnsServer, i, float64(dur.Nanoseconds())/1000000.0, invalid)
+		fmt.Printf("%d bytes from %s: seq=%-3d time=%0.3f ms%v\n", resp.Len(), dnsServer, i, inMilli(dur), invalid)
 		// sleep as needed
 		if sleepTime := *interval - dur; sleepTime > 0 {
 			time.Sleep(sleepTime)
